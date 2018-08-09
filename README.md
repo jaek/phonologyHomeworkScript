@@ -1,7 +1,10 @@
 # phonologyHomeworkScript
 Little script to help with phonology homework
+
 All credit goes to AdamSteffanick for compiling the IPA data in glorious CSV
+
 https://github.com/AdamSteffanick/ipa-data
+
 ## Usage
 Run the script:
 
@@ -21,4 +24,5 @@ Enter 'q' to quit
 
 ## dependencies
 fuzzywuzzy
+
 python-Levenshtein
