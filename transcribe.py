@@ -13,7 +13,10 @@ def getDataFromCsv(FileName):
         for row in rawdata:
             if(row[5] != ''):
                 data[row[1]] = str(row[4]) + ' ' + str(row[5]) + ' ' + str(row[6])
-    return data        
+            if(row[7] != ''):
+                data[row[1]] = str(row[7]) + ' ' + str(row[8]) + ' ' + str(row[9])
+    return data     
+
 def searchData():
     while True:
         search = input("search for a phoneme : ")
