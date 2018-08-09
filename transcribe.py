@@ -6,6 +6,14 @@
 import csv
 from fuzzywuzzy import fuzz
 
+
+def RepresentsInt(s):
+    try: 
+        int(s)
+        return True
+    except ValueError:
+        return False
+
 def getDataFromCsv(FileName):
     data = {} 
     with open(FileName) as csvfile:
@@ -18,12 +26,15 @@ def getDataFromCsv(FileName):
     return data     
 
 def searchData():
+    fuzzfactor = 80
     while True:
         search = input("search for a phoneme : ")
         if (search == "q"):
             break
+        if (RepresentsInt(search)):
+            fuzzfactor = int(search)
         for key in data:
-            if (fuzz.ratio(data[key], search) > 75):
+            if (fuzz.ratio(data[key], search) > fuzzfactor or key == search):
                 print(key, data[key])
 
 data = getDataFromCsv("ipa-data.csv")
